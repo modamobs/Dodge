@@ -33,13 +33,23 @@ public class GameManager : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.R))
             {
                 // SampleScene 씬을 로드
-                SceneManager.LoadScene("SampleScene");
+                RestartGame();
             }
         }
     }
 
+
+
+
+    public void RestartGame()
+    {
+        // SampleScene 씬을 로드
+        SceneManager.LoadScene(0);
+    }
+
     // 현재 게임을 게임 오버 상태로 변경하는 메서드
-    public void EndGame() {
+    public void EndGame()
+    {
         // 현재 상태를 게임 오버 상태로 전환
         isGameover = true;
         // 게임 오버 텍스트 게임 오브젝트를 활성화
@@ -58,6 +68,6 @@ public class GameManager : MonoBehaviour {
         }
 
         // 최고 기록을 recordText 텍스트 컴포넌트를 통해 표시
-        recordText.text = "Best Time: " + (int) bestTime;
+        recordText.text = "Best Time: " + (int)bestTime;
     }
 }

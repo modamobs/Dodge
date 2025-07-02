@@ -30,36 +30,15 @@ public class PlayerController : MonoBehaviour
         Vector3 newVelocity = new Vector3(xSpeed, 0f, zSpeed);
         // 리지드바디의 속도에 newVelocity를 할당
         playerRigidbody.linearVelocity = newVelocity;
-
-        // if (Input.GetKey(KeyCode.UpArrow) == true)
-        // {
-        //     // 위쪽 방향키 입력이 감지된 경우 z 방향 힘가기
-        //     playerRigidbody.AddForce(0f, 0f, speed);
-        // }
-
-        // if (Input.GetKey(KeyCode.DownArrow) == true)
-        // {
-        //     // 아래쪽 방향키 입력이 감지된 경우 -z 방향 힘가기
-        //     playerRigidbody.AddForce(0f, 0f, -speed);
-        // }
-
-        // if (Input.GetKey(KeyCode.RightArrow) == true)
-        // {
-        //     // 오른쪽 방향키 입력이 감지된 경우 x 방향 힘가기
-        //     playerRigidbody.AddForce(speed, 0f, 0f);
-        // }
-
-        // if (Input.GetKey(KeyCode.LeftArrow) == true)
-        // {
-        //     // 왼쪽 방향키 입력이 감지된 경우 -x 방향 힘가기
-        //     playerRigidbody.AddForce(-speed, 0f, 0f);
-        // }
     }
 
     public void Die()
     {
         // 자신의 게임 오브젝트를 비활성화
         gameObject.SetActive(false);
+        GameManager gameManager = FindFirstObjectByType<GameManager>();
+        // 가져온 GameManager 오브젝트의 EndGame() 메서드 실행
+        gameManager.EndGame();
     }
 }
 
